@@ -1176,6 +1176,10 @@ async function submitQuiz(){
         phone:qData.phone,
         companyName:qData.company,
         tags:['quiz-lead',qData.industry,qData.timeline].filter(Boolean),
+        industry:qData.industry,
+        challenge:qData.challenge,
+        budget:qData.budget,
+        timeline:qData.timeline,
         note:[
           '📋 WEBSITE QUIZ SUBMISSION',
           'Industry: '+(qData.industry||'—'),
