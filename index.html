@@ -56,34 +56,34 @@ nav.scrolled{background:rgba(8,8,26,.97)}
 @keyframes fp{0%,100%{box-shadow:0 0 0 0 rgba(34,217,138,.5)}50%{box-shadow:0 0 0 6px rgba(34,217,138,0)}}
 
 /* HERO */
-#hero{height:100svh;max-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 52px 40px;position:relative;overflow:hidden;box-sizing:border-box}
+#hero{height:100svh;max-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:76px 52px 36px;position:relative;overflow:hidden;box-sizing:border-box;gap:clamp(10px,1.8svh,20px)}
 .hero-scanline{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(79,108,255,.01) 3px,rgba(79,108,255,.01) 6px)}
 .hero-glow-a{position:absolute;top:-250px;left:-150px;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(79,108,255,.15),transparent 60%);pointer-events:none;animation:breathe 7s ease-in-out infinite}
 .hero-glow-b{position:absolute;bottom:-300px;right:-150px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(94,197,255,.08),transparent 60%);pointer-events:none;animation:breathe 9s ease-in-out infinite 2.5s}
 @keyframes breathe{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.1);opacity:.7}}
 
-.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--fs);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;position:relative;z-index:2;opacity:0;animation:fadeUp .8s ease forwards;justify-content:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--fs);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);position:relative;z-index:2;opacity:0;animation:fadeUp .8s ease forwards;justify-content:center;flex-shrink:0}
 .eyebrow-line{width:36px;height:1px;background:var(--cyan)}
 .eyebrow-badge{background:rgba(94,197,255,.08);border:1px solid rgba(94,197,255,.22);padding:4px 14px;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);font-size:11px;letter-spacing:.15em}
 
-.hero-h1{font-family:var(--fh);font-size:clamp(52px,7.2vw,118px);line-height:.9;font-weight:900;letter-spacing:.01em;text-transform:uppercase;position:relative;z-index:2;max-width:1000px;opacity:0;animation:fadeUp .8s ease .12s forwards}
+.hero-h1{font-family:var(--fh);font-size:clamp(42px,min(6.8vw,9svh),112px);line-height:.92;font-weight:900;letter-spacing:.01em;text-transform:uppercase;position:relative;z-index:2;max-width:1000px;opacity:0;animation:fadeUp .8s ease .12s forwards;flex-shrink:0}
 .hero-h1 .cx{color:var(--cyan)}
 .hero-h1 .gx{background:linear-gradient(135deg,var(--blue2) 20%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-h1 .tx{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.18)}
 
-.hero-body{display:flex;flex-direction:column;align-items:center;margin-top:22px;position:relative;z-index:2;opacity:0;animation:fadeUp .8s ease .24s forwards}
-.hero-copy{font-size:16px;line-height:1.7;color:var(--mist);max-width:620px;text-align:center}
+.hero-body{display:flex;flex-direction:column;align-items:center;gap:clamp(12px,1.5svh,20px);position:relative;z-index:2;opacity:0;animation:fadeUp .8s ease .24s forwards;flex-shrink:0}
+.hero-copy{font-size:clamp(14px,1.6vw,16px);line-height:1.7;color:var(--mist);max-width:580px;text-align:center}
 .hero-copy strong{color:var(--white);font-weight:600}
 .hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center}
 
-.hero-stats{display:flex;gap:0;margin-top:28px;border:1px solid var(--bdr);position:relative;z-index:2;opacity:0;animation:fadeUp .8s ease .38s forwards;max-width:860px;width:100%}
-.hstat{flex:1;padding:18px 24px;border-right:1px solid var(--bdr);position:relative;overflow:hidden;transition:background .3s;text-align:center}
+.hero-stats{display:flex;gap:0;border:1px solid var(--bdr);position:relative;z-index:2;opacity:0;animation:fadeUp .8s ease .38s forwards;max-width:860px;width:100%;flex-shrink:0}
+.hstat{flex:1;padding:clamp(10px,1.4svh,16px) 16px;border-right:1px solid var(--bdr);position:relative;overflow:hidden;transition:background .3s;text-align:center}
 .hstat:last-child{border-right:none}
 .hstat:hover{background:rgba(79,108,255,.05)}
 .hstat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .4s}
 .hstat:hover::before{transform:scaleX(1)}
-.hstat-num{font-family:var(--fh);font-size:38px;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--white),var(--cyan2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hstat-label{font-size:11px;color:var(--mist);margin-top:4px;line-height:1.4}
+.hstat-num{font-family:var(--fh);font-size:clamp(26px,min(3vw,4.5svh),40px);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--white),var(--cyan2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hstat-label{font-size:clamp(10px,1vw,12px);color:var(--mist);margin-top:3px;line-height:1.35}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
@@ -347,9 +347,9 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
   .nav-ham{display:flex}
 
   /* Hero */
-  #hero{padding:80px 20px 32px}
-  .hero-stats{flex-wrap:wrap;gap:0;max-width:100%}
-  .hstat{min-width:50%;flex:1 1 50%}
+  #hero{padding:70px 20px 28px;gap:clamp(8px,1.5svh,16px)}
+  .hero-stats{max-width:100%}
+  .hstat{flex:1;min-width:0}
 
   /* Sections */
   .sec{padding:72px 20px}
@@ -394,12 +394,10 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
 /* Small mobile only (≤600px) */
 @media(max-width:600px){
   /* Hero */
-  #hero{padding:74px 16px 24px}
+  #hero{padding:68px 16px 20px;gap:clamp(8px,1.2svh,14px)}
   .hero-eyebrow{font-size:10px;flex-wrap:wrap;justify-content:center}
-  .hstat{min-width:50%;padding:14px 12px}
-  .hstat-num{font-size:30px}
-  .hstat-label{font-size:10px}
-  .hero-actions{flex-direction:column;align-items:stretch;gap:12px}
+  .hero-stats{display:none}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:10px}
   .hero-actions .btn-primary,.hero-actions .btn-ghost{text-align:center;display:block}
 
   /* Section spacing */
@@ -686,7 +684,7 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
   <h1 class="hero-h1">STOP WAITING<br><span class="gx">FOR REFERRALS.</span><br>START <span class="cx">WINNING JOBS.</span></h1>
   <div class="hero-body">
     <p class="hero-copy">PipelineX builds UK trades and construction businesses a <strong>predictable flow of qualified leads</strong> — booked straight into your calendar using Meta Ads and AI follow-up. No referral dependency. No setup fees. No lock-in.</p>
-    <div class="hero-actions" style="margin-top:24px">
+    <div class="hero-actions">
       <a href="#" class="btn-primary quiz-trigger">Get your free strategy call</a>
       <a href="#results" class="btn-ghost">See real results →</a>
     </div>
