@@ -909,15 +909,34 @@ async function submitQuiz(){
   qData.email=email;qData.phone=phone;qData.source=document.getElementById('qSource').value;
   const btn=document.getElementById('quizNext');
   btn.textContent='Sending…';btn.disabled=true;
-  try{
-    await fetch('https://formspree.io/f/xpwrjqkb',{
+
+  const nameParts=qData.name.trim().split(' ');
+  const firstName=nameParts[0];
+  const lastName=nameParts.slice(1).join(' ')||'';
+
+  await Promise.allSettled([
+    fetch('https://formspree.io/f/xpwrjqkb',{
       method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({_replyto:qData.email,_subject:'PipelineX Quiz Lead — '+qData.name,
         Name:qData.name,Company:qData.company,Email:qData.email,Phone:qData.phone,
         Industry:qData.industry,Challenge:qData.challenge,Revenue:qData.revenue,
         Budget:qData.budget,Services:qData.services.join(', '),Timeline:qData.timeline,Source:qData.source})
-    });
-  }catch(e){}
+    }),
+    fetch('https://services.leadconnectorhq.com/hooks/noybjYU81Q2wCuwLiizF/webhook-trigger/14571bc8-23b9-45be-a46e-7d9417821f49',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        firstName,lastName,
+        email:qData.email,phone:qData.phone,companyName:qData.company,
+        source:'Website Quiz',
+        tags:['quiz-lead',qData.industry].filter(Boolean),
+        industry:qData.industry,challenge:qData.challenge,revenue:qData.revenue,
+        budget:qData.budget,services:qData.services.join(', '),
+        timeline:qData.timeline,howHeard:qData.source
+      })
+    })
+  ]);
+
   buildResults();goStep(7);btn.textContent='Next →';btn.disabled=false;
 }
 
