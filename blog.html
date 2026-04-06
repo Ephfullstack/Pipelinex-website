@@ -915,13 +915,6 @@ async function submitQuiz(){
   const lastName=nameParts.slice(1).join(' ')||'';
 
   await Promise.allSettled([
-    fetch('https://formspree.io/f/xpwrjqkb',{
-      method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({_replyto:qData.email,_subject:'PipelineX Quiz Lead — '+qData.name,
-        Name:qData.name,Company:qData.company,Email:qData.email,Phone:qData.phone,
-        Industry:qData.industry,Challenge:qData.challenge,Revenue:qData.revenue,
-        Budget:qData.budget,Services:qData.services.join(', '),Timeline:qData.timeline,Source:qData.source})
-    }),
     fetch('https://services.leadconnectorhq.com/hooks/noybjYU81Q2wCuwLiizF/webhook-trigger/14571bc8-23b9-45be-a46e-7d9417821f49',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
