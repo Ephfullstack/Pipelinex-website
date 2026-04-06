@@ -163,6 +163,8 @@ nav.scrolled{background:rgba(8,8,26,.97)}
 .case-logo{position:absolute;top:26px;right:26px;opacity:.5;transition:opacity .3s}
 .case:hover .case-logo{opacity:1}
 .case-ind{font-family:var(--fs);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.case-trigger .case-metrics::after{content:'Read full case study →';display:block;font-family:var(--fs);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-top:20px;padding-top:16px;border-top:1px solid var(--bdr);opacity:.7;transition:opacity .2s}
+.case-trigger:hover .case-metrics::after{opacity:1}
 .case-h{font-family:var(--fh);font-size:42px;font-weight:900;text-transform:uppercase;line-height:.92;margin-bottom:14px}
 .case-p{font-size:13px;color:var(--mist);line-height:1.7}
 .case-metrics{display:flex;gap:24px;margin-top:26px;padding-top:22px;border-top:1px solid var(--bdr)}
@@ -697,18 +699,6 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
   </div>
 </section>
 
-<!-- Social strip -->
-<div class="sstrip">
-  <div class="ss-stars ss-google-wrap"><svg viewBox="0 0 24 24" width="15" height="15" style="flex-shrink:0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span class="ss-si">★★★★★</span><span class="ss-st">5.0 on Google</span><span class="ss-sb">· 47+ verified reviews</span></div>
-  <a href="https://instagram.com/pipelinexlimited" target="_blank" class="ss-lnk">📸 @pipelinexlimited on Instagram</a>
-  <a href="#" class="ss-lnk">📍 View on Google Business Profile</a>
-</div>
-
-<!-- Ticker -->
-<div class="ticker-wrap"><div class="ticker-inner">
-  <span class="t-item">Lead Generation <span>✦</span></span><span class="t-item">AI Systems <span>✦</span></span><span class="t-item">Google Ads <span>✦</span></span><span class="t-item">Meta Ads <span>✦</span></span><span class="t-item">Sales Funnels <span>✦</span></span><span class="t-item">CRM Automation <span>✦</span></span><span class="t-item">SEO <span>✦</span></span><span class="t-item">Social Media <span>✦</span></span><span class="t-item">Brand Strategy <span>✦</span></span><span class="t-item">Analytics <span>✦</span></span><span class="t-item">Lead Generation <span>✦</span></span><span class="t-item">AI Systems <span>✦</span></span><span class="t-item">Google Ads <span>✦</span></span><span class="t-item">Meta Ads <span>✦</span></span><span class="t-item">Sales Funnels <span>✦</span></span><span class="t-item">CRM Automation <span>✦</span></span><span class="t-item">SEO <span>✦</span></span><span class="t-item">Social Media <span>✦</span></span><span class="t-item">Brand Strategy <span>✦</span></span><span class="t-item">Analytics <span>✦</span></span>
-</div></div>
-
 <!-- Trust bar -->
 <div class="trust-bar">
   <div class="tb-label">Trusted by businesses across the UK</div>
@@ -751,7 +741,7 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
     <p class="rv" style="font-size:16px;color:var(--mist);line-height:1.75;transition-delay:.1s">Every number below is from a real UK trades or construction business. No vanity metrics — only qualified leads, booked jobs, and money in the bank.</p>
   </div>
   <div class="cases-grid">
-    <div class="case rv">
+    <div class="case rv case-trigger" data-case="case1" style="cursor:pointer">
       <div class="case-logo"><div class="client-logo-wrap client-logo-wrap-lg"><img src="https://crownheating.co.uk/wp-content/uploads/2024/03/HEATING-SERVICES-LTD.png" alt="Crown Heating Services" class="client-logo-lg"></div></div>
       <div class="case-ind">Plumbing &amp; Heating · Leeds</div>
       <div class="case-h">CROWN<br>HEATING</div>
@@ -762,7 +752,7 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
         <div><div class="cm-n">10</div><div class="cm-l">Days to<br>first ROI</div></div>
       </div>
     </div>
-    <div class="case rv" style="transition-delay:.1s">
+    <div class="case rv case-trigger" data-case="case2" style="transition-delay:.1s;cursor:pointer">
       <div class="case-logo"><svg viewBox="0 0 44 44" fill="none" width="44" height="44"><rect width="44" height="44" rx="8" fill="rgba(255,150,50,.12)"/><rect x="6" y="32" width="32" height="5" rx="2" fill="#ff9630" opacity=".6"/><rect x="10" y="20" width="24" height="12" rx="2" fill="none" stroke="#ff9630" stroke-width="1.8"/><path d="M16 20V14a6 6 0 0 1 12 0v6" stroke="#ff9630" stroke-width="1.8" stroke-linecap="round"/><rect x="17" y="24" width="10" height="8" rx="1" fill="rgba(255,150,50,.25)"/></svg></div>
       <div class="case-ind">Groundworks &amp; Civil · North West</div>
       <div class="case-h">ROWE<br>GROUNDWORKS</div>
@@ -773,7 +763,7 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
         <div><div class="cm-n">£0</div><div class="cm-l">Setup<br>fees</div></div>
       </div>
     </div>
-    <div class="case rv" style="transition-delay:.05s">
+    <div class="case rv case-trigger" data-case="case3" style="transition-delay:.05s;cursor:pointer">
       <div class="case-logo"><div class="client-logo-wrap client-logo-wrap-lg"><img src="https://vitaclinicliverpool.co.uk/wp-content/uploads/2023/06/Vita-Clinic.png" alt="Vita Clinic" class="client-logo-lg"></div></div>
       <div class="case-ind">Private Healthcare · Liverpool</div>
       <div class="case-h">VITA<br>CLINIC</div>
@@ -783,7 +773,7 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
         <div><div class="cm-n">60%</div><div class="cm-l">Drop in cost<br>per booking</div></div>
       </div>
     </div>
-    <div class="case rv" style="transition-delay:.15s">
+    <div class="case rv case-trigger" data-case="case4" style="transition-delay:.15s;cursor:pointer">
       <div class="case-logo"><div class="client-logo-wrap client-logo-wrap-lg"><img src="https://novabrands.uk/wp-content/uploads/2025/12/logo2.png" alt="Nova Brands" class="client-logo-lg"></div></div>
       <div class="case-ind">E-commerce · Nationwide</div>
       <div class="case-h">NOVA<br>BRANDS</div>
@@ -875,33 +865,6 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
   </div>
 </section>
 
-<!-- WHY -->
-<section id="why" class="sec" style="background:var(--bg2)">
-  <div class="why-grid">
-    <div>
-      <div class="sec-label rv">Why choose us</div>
-      <h2 class="sec-h2 rv">NOT SURE WHERE<br>YOUR <span class="cx">PIPELINE IS</span><br>COMING FROM?</h2>
-      <div class="why-list">
-        <div class="why-item rv"><div class="why-ic">🎯</div><div><div class="why-it">We track everything</div><div class="why-id">UTM parameters on every link. Unique tracking numbers per channel. Weekly attribution reviews. You'll always know exactly where every lead comes from.</div></div></div>
-        <div class="why-item rv" style="transition-delay:.07s"><div class="why-ic">🤖</div><div><div class="why-it">AI works while you sleep</div><div class="why-id">Our AI systems respond to new leads in under 5 minutes, 24/7. Your team only gets warm, ready-to-buy leads — no more losing prospects to slow replies.</div></div></div>
-        <div class="why-item rv" style="transition-delay:.14s"><div class="why-ic">📋</div><div><div class="why-it">No long-term contracts</div><div class="why-id">Rolling monthly agreements. No setup fees. Our 98% retention rate exists because of results, not paperwork.</div></div></div>
-        <div class="why-item rv" style="transition-delay:.21s"><div class="why-ic">📞</div><div><div class="why-it">A dedicated team, not a ticket queue</div><div class="why-id">A dedicated account manager who knows your business, responds same-day, and meets monthly to review and plan ahead.</div></div></div>
-      </div>
-    </div>
-    <div class="why-orb rv" style="transition-delay:.1s">
-      <div class="orb-r"></div><div class="orb-r"></div><div class="orb-r"></div>
-      <div class="orb-ctr">
-        <div class="orb-n" data-target="98" data-suffix="%" data-prefix="">0%</div>
-        <div class="orb-l">Client retention rate</div>
-      </div>
-      <div class="orb-d" style="top:4%;left:48%;width:9px;height:9px;background:var(--cyan);box-shadow:0 0 14px var(--cyan)"></div>
-      <div class="orb-d" style="top:50%;right:3%;width:7px;height:7px;background:var(--blue);box-shadow:0 0 12px var(--blue);animation-delay:.9s"></div>
-      <div class="orb-d" style="bottom:8%;left:28%;width:10px;height:10px;background:var(--gold);box-shadow:0 0 14px var(--gold);animation-delay:1.8s"></div>
-      <div class="orb-d" style="top:28%;left:5%;width:6px;height:6px;background:var(--green);box-shadow:0 0 10px var(--green);animation-delay:2.7s"></div>
-    </div>
-  </div>
-</section>
-
 <!-- PROCESS -->
 <section id="process" class="sec">
   <div class="sec-label rv">How it works</div>
@@ -911,35 +874,6 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
     <div class="proc-step rv" style="transition-delay:.1s"><div class="proc-n">02</div><div class="proc-bar"></div><div class="proc-title">Strategy Build</div><div class="proc-desc">We map your ideal client profile, write the ad copy, design the funnels, and build the AI qualification system — all in 2 weeks. No 3-month onboarding.</div><div class="proc-conn">→</div></div>
     <div class="proc-step rv" style="transition-delay:.2s"><div class="proc-n">03</div><div class="proc-bar"></div><div class="proc-title">Launch & Scale</div><div class="proc-desc">Campaigns go live. The AI system activates. Leads start flowing. We monitor daily and optimise weekly — cutting waste, doubling down on wins.</div><div class="proc-conn">→</div></div>
     <div class="proc-step rv" style="transition-delay:.3s"><div class="proc-n">04</div><div class="proc-bar"></div><div class="proc-title">Report & Grow</div><div class="proc-desc">Monthly calls with your account manager. Live dashboard with every metric. Plain-English reporting. We grow when you grow.</div></div>
-  </div>
-</section>
-
-<!-- LEAD MAGNET -->
-<section id="leadmagnet">
-  <div class="lm-wrap">
-    <div class="rv">
-      <div class="lm-badge">Free Download</div>
-      <h2 class="lm-h">THE 5-POINT<br><span class="cx">MARKETING AUDIT</span><br>FOR UK BUSINESSES</h2>
-      <p class="lm-desc">Not sure which channels are actually generating leads — or why they're not converting? This is the exact audit framework we run for every new client. Takes 20 minutes. Saves thousands.</p>
-      <ul class="lm-list">
-        <li>Identify exactly which channels are generating your leads</li>
-        <li>Find the gaps in your current follow-up system</li>
-        <li>See which ads are wasting your budget right now</li>
-        <li>Benchmark your cost-per-lead against industry averages</li>
-        <li>A step-by-step action plan you can implement this week</li>
-      </ul>
-    </div>
-    <div class="lm-form rv" style="transition-delay:.1s">
-      <div class="lm-fh">Get the free audit</div>
-      <div class="lm-fs">Delivered instantly to your inbox. No spam, ever.</div>
-      <div class="fg"><label>Your name</label><input type="text" id="lm-name" placeholder="e.g. James Cooper"></div>
-      <div class="fg"><label>Email address</label><input type="email" id="lm-email" placeholder="james@yourbusiness.co.uk"></div>
-      <div class="fg"><label>Business type</label>
-        <select id="lm-biz"><option value="" disabled selected>Select your industry</option><option>B2B Services</option><option>Financial Services</option><option>Healthcare / Medical</option><option>Construction / Trades</option><option>E-commerce</option><option>Professional Services</option><option>Other</option></select>
-      </div>
-      <button class="lm-btn" id="lm-submit">Send me the free audit →</button>
-      <p class="lm-priv">🔒 Your details are safe. Unsubscribe anytime.</p>
-    </div>
   </div>
 </section>
 
@@ -1107,6 +1041,18 @@ document.getElementById('lm-submit').addEventListener('click',()=>{
   btn.textContent='✓ Check your inbox!';btn.style.background='linear-gradient(135deg,#1a7a46,#22c76a)';btn.style.pointerEvents='none';
 });
 
+/* ── CASE STUDY MODALS ── */
+document.addEventListener('click',e=>{
+  const card=e.target.closest('.case-trigger');
+  if(!card)return;
+  const id=card.dataset.case;
+  const overlay=document.getElementById(id);
+  if(!overlay)return;
+  overlay.classList.add('act');
+  document.body.style.overflow='hidden';
+  overlay.scrollTop=0;
+});
+
 /* ── BLOG MODALS ── */
 document.querySelectorAll('.blog-trigger').forEach(card=>{
   card.addEventListener('click',e=>{
@@ -1254,6 +1200,122 @@ function buildResults(){
   document.getElementById('qResIndustry').textContent=qData.industry||'your industry';
 }
 </script>
+
+<!-- ── CASE STUDY MODALS ── -->
+
+<div id="case1" class="blog-modal-overlay" role="dialog" aria-modal="true">
+  <div class="blog-modal">
+    <div class="bm-top"><span class="bm-cat">Plumbing &amp; Heating · Leeds</span><button class="bm-close blog-close" aria-label="Close">&#x2715;</button></div>
+    <div class="bm-body">
+      <div class="bm-title">Crown Heating Services</div>
+      <div class="bm-meta">Meta Ads · AI Follow-Up · Lead Generation</div>
+      <p>Crown Heating came to PipelineX after years of relying almost entirely on word-of-mouth referrals. They were doing good work but couldn't predict their pipeline — great months were followed by quiet ones, and there was no system to fill the gaps.</p>
+      <div class="bm-highlight" style="display:flex;gap:32px;flex-wrap:wrap">
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">54</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Qualified leads<br>in 3 weeks</div></div>
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">19</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Boiler installs<br>booked</div></div>
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">10</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Days to<br>first ROI</div></div>
+      </div>
+      <h3>The Challenge</h3>
+      <p>Despite consistently excellent reviews and a solid reputation in Leeds, Crown Heating had no reliable way to generate new business outside of referrals. When referrals dried up, so did the calendar. They'd tried a local marketing agency before but saw no measurable results.</p>
+      <h3>What We Did</h3>
+      <ul>
+        <li><strong>Meta Ads campaign</strong> — targeted homeowners in Leeds and surrounding areas searching for boiler installation, replacement, and servicing. Ad creative focused on urgency (seasonal) and trust signals.</li>
+        <li><strong>Dedicated landing page</strong> — built specifically for boiler installs, with a qualification form filtering by property type, urgency, and budget.</li>
+        <li><strong>AI follow-up system</strong> — every enquiry received a personalised SMS within 4 minutes, qualifying intent and booking calls directly into the engineer's diary.</li>
+        <li><strong>Live tracking dashboard</strong> — Crown Heating could see every lead, its source, and its status in real time.</li>
+      </ul>
+      <h3>The Results</h3>
+      <p>Within 3 weeks of launch: 54 qualified leads, 19 boiler install bookings confirmed, and full ROI on the campaign within 10 days. The AI system now runs continuously — generating enquiries while the team is on site.</p>
+      <p style="font-style:italic;color:var(--white)">"We've used agencies before, but this is on another level. The leads are solid."</p>
+      <div class="bm-cta"><p>Want results like this for your trades business?</p><a href="#" class="btn-primary quiz-trigger" style="display:inline-flex;align-items:center;gap:8px">Get your free strategy call →</a></div>
+    </div>
+  </div>
+</div>
+
+<div id="case2" class="blog-modal-overlay" role="dialog" aria-modal="true">
+  <div class="blog-modal">
+    <div class="bm-top"><span class="bm-cat">Groundworks &amp; Civil · North West</span><button class="bm-close blog-close" aria-label="Close">&#x2715;</button></div>
+    <div class="bm-body">
+      <div class="bm-title">Rowe Groundworks Ltd</div>
+      <div class="bm-meta">Google Ads · AI Systems · Pipeline Growth</div>
+      <p>Rowe Groundworks are a commercial groundworks and civil engineering contractor operating across Manchester and Cheshire. When they came to PipelineX, 100% of their work came through existing contacts and referrals — good for stability, terrible for growth.</p>
+      <div class="bm-highlight" style="display:flex;gap:32px;flex-wrap:wrap">
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">47</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Qualified leads<br>in first month</div></div>
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">3x</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Pipeline growth<br>in 90 days</div></div>
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">£0</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Setup<br>fees</div></div>
+      </div>
+      <h3>The Challenge</h3>
+      <p>Rowe Groundworks had the capability to take on more commercial contracts but no system to find them. Their website was outdated, they had zero paid advertising presence, and their sales process was entirely reactive — waiting for the phone to ring.</p>
+      <h3>What We Did</h3>
+      <ul>
+        <li><strong>Google Ads</strong> — intent-based campaigns targeting commercial developers, builders, and project managers searching for groundworks contractors in the North West.</li>
+        <li><strong>Dedicated landing page</strong> — purpose-built for commercial contracts, with credibility signals and a fast enquiry form.</li>
+        <li><strong>AI qualification system</strong> — filtered enquiries by project size and timeline before routing to the team, removing time wasted on unsuitable leads.</li>
+        <li><strong>CRM integration</strong> — every lead logged, tracked and followed up automatically, with a live dashboard showing pipeline value in real time.</li>
+      </ul>
+      <h3>The Results</h3>
+      <p>47 qualified leads in the first month. Pipeline value tripled within 90 days. Dave Rowe now has a consistent flow of commercial enquiries running in parallel with his existing referral network — the business is no longer dependent on any single source.</p>
+      <p style="font-style:italic;color:var(--white)">"Before PipelineX we were fully reliant on referrals. Now we have a live dashboard and a pipeline we can actually plan around."</p>
+      <div class="bm-cta"><p>Ready to stop waiting for referrals?</p><a href="#" class="btn-primary quiz-trigger" style="display:inline-flex;align-items:center;gap:8px">Get your free strategy call →</a></div>
+    </div>
+  </div>
+</div>
+
+<div id="case3" class="blog-modal-overlay" role="dialog" aria-modal="true">
+  <div class="blog-modal">
+    <div class="bm-top"><span class="bm-cat">Private Healthcare · Liverpool</span><button class="bm-close blog-close" aria-label="Close">&#x2715;</button></div>
+    <div class="bm-body">
+      <div class="bm-title">Vita Clinic Liverpool</div>
+      <div class="bm-meta">Meta Ads · AI Lead Qualification · Funnel Build</div>
+      <p>Vita Clinic is a private health clinic in Liverpool offering aesthetic, wellness and therapeutic treatments. They were running Meta Ads independently but struggling with poor lead quality — spending budget on enquiries that never converted to bookings.</p>
+      <div class="bm-highlight" style="display:flex;gap:32px;flex-wrap:wrap">
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">4.1x</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Return on<br>ad spend</div></div>
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">60%</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Drop in cost<br>per booking</div></div>
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">2wk</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Full funnel<br>rebuild time</div></div>
+      </div>
+      <h3>The Challenge</h3>
+      <p>Vita Clinic's previous Meta Ads were generating form fills but at a high cost and with low conversion to actual appointments. Their ROAS sat at 1.4x — barely breaking even. Front-desk staff were spending significant time chasing unqualified leads.</p>
+      <h3>What We Did</h3>
+      <ul>
+        <li><strong>Full funnel rebuild</strong> — new ad creative, audience segmentation, and a landing page redesigned to qualify treatment interest and budget before booking.</li>
+        <li><strong>AI lead qualification</strong> — automated pre-booking flow that filtered out window-shoppers and only surfaced intent-confirmed enquiries to the front desk.</li>
+        <li><strong>Retargeting campaigns</strong> — re-engaged warm audiences who had visited the site but not booked, driving them back with time-sensitive offers.</li>
+        <li><strong>Attribution tracking</strong> — full UTM setup so Vita Clinic could see exactly which ad, audience, and creative was generating their most profitable patients.</li>
+      </ul>
+      <h3>The Results</h3>
+      <p>Within 6 weeks: ROAS climbed from 1.4x to 4.1x. Cost per booking dropped 60%. The front desk team's time spent on unqualified enquiries fell to near zero — the AI system handled all initial qualification automatically.</p>
+      <div class="bm-cta"><p>Want a funnel that actually converts?</p><a href="#" class="btn-primary quiz-trigger" style="display:inline-flex;align-items:center;gap:8px">Get your free strategy call →</a></div>
+    </div>
+  </div>
+</div>
+
+<div id="case4" class="blog-modal-overlay" role="dialog" aria-modal="true">
+  <div class="blog-modal">
+    <div class="bm-top"><span class="bm-cat">E-commerce · Nationwide</span><button class="bm-close blog-close" aria-label="Close">&#x2715;</button></div>
+    <div class="bm-body">
+      <div class="bm-title">Nova Brands</div>
+      <div class="bm-meta">Meta Ads · Google Ads · Funnel Redesign · Scale</div>
+      <p>Nova Brands is a UK wellness and skincare e-commerce brand. When they approached PipelineX, they were spending £8,000/month on ads and generating inconsistent returns — some months profitable, others not. They wanted to scale but had no confidence in the system underpinning their growth.</p>
+      <div class="bm-highlight" style="display:flex;gap:32px;flex-wrap:wrap">
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">4.8x</div><div style="font-size:12px;color:var(--mist);margin-top:4px">ROAS at<br>£35k/month</div></div>
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">240%</div><div style="font-size:12px;color:var(--mist);margin-top:4px">Revenue<br>growth</div></div>
+        <div style="text-align:center"><div style="font-family:var(--fh);font-size:48px;font-weight:900;color:var(--cyan);line-height:1">5mo</div><div style="font-size:12px;color:var(--mist);margin-top:4px">£8k → £35k<br>ad spend</div></div>
+      </div>
+      <h3>The Challenge</h3>
+      <p>Nova Brands had a great product but an unreliable paid media setup — inconsistent creative testing, poor audience segmentation on Meta, and no Google presence at all. Their customer acquisition cost fluctuated wildly month-to-month, making planning impossible.</p>
+      <h3>What We Did</h3>
+      <ul>
+        <li><strong>Meta Ads restructure</strong> — rebuilt campaign architecture from scratch, implemented a proper creative testing framework, and separated prospecting and retargeting budgets.</li>
+        <li><strong>Google Ads launch</strong> — introduced Shopping and Search campaigns to capture high-intent buyers, creating a multi-channel acquisition system for the first time.</li>
+        <li><strong>Funnel redesign</strong> — rebuilt landing pages and post-click flows to improve conversion rate, reducing wasted ad spend at every stage of the funnel.</li>
+        <li><strong>Weekly optimisation cadence</strong> — daily spend monitoring, weekly creative refreshes, and bi-weekly budget reallocation to consistently improve performance as spend scaled.</li>
+      </ul>
+      <h3>The Results</h3>
+      <p>Over 5 months, ad spend scaled from £8k to £35k/month while ROAS held steady at 4.8x throughout — a 240% increase in revenue with no loss of efficiency. Nova Brands now has a predictable, scalable acquisition machine they can confidently grow.</p>
+      <div class="bm-cta"><p>Ready to scale with confidence?</p><a href="#" class="btn-primary quiz-trigger" style="display:inline-flex;align-items:center;gap:8px">Get your free strategy call →</a></div>
+    </div>
+  </div>
+</div>
 
 <!-- ── BLOG MODALS ── -->
 
