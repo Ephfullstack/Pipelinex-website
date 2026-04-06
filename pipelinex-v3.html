@@ -179,8 +179,8 @@ nav.scrolled{background:rgba(8,8,26,.97)}
 .t-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan),transparent);opacity:0;transition:opacity .3s}
 .t-card:hover::before{opacity:1}
 .t-logo-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--bdr)}
-.t-logo-info{display:flex;align-items:center;gap:10px}
-.t-logo-name{font-family:var(--fs);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.t-logo-info{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
+.t-logo-name{font-family:var(--fs);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--white);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .t-logo-sector{font-size:11px;color:var(--mist);margin-top:2px}
 .t-stars-row{color:#fbbc04;font-size:13px;letter-spacing:2px}
 .t-qm{font-family:Georgia,serif;font-size:52px;line-height:.5;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:14px}
@@ -416,6 +416,11 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
   .proc-conn{display:none}
   .proc-step{border-right:none;border-bottom:1px solid var(--bdr)}
   .proc-step:last-child{border-bottom:none}
+
+  /* Case cards — reduce padding and heading size on small screens */
+  .case{padding:28px 16px}
+  .case-h{font-size:clamp(28px,9vw,42px)}
+  .case-logo{top:16px;right:16px}
 
   /* Case metrics wrap */
   .case-metrics{flex-wrap:wrap;gap:16px}
