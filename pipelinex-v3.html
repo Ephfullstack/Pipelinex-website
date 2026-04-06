@@ -1166,34 +1166,17 @@ async function submitQuiz(){
   const nameParts=qData.name.trim().split(' ');
   const firstName=nameParts[0];
   const lastName=nameParts.slice(1).join(' ')||'';
-  const GHL_KEY='pit-6843a8cc-3727-4ec4-ba1d-4141a0db8d3f';
-  const GHL_LOC='noybjYU81Q2wCuwLiizF';
-  const GHL_H={'Authorization':'Bearer '+GHL_KEY,'Version':'2021-07-28','Content-Type':'application/json'};
-
   try{
-    /* 1. Create contact directly in GHL */
-    const res=await fetch('https://services.leadconnectorhq.com/contacts/',{
+    await fetch('/api/ghl',{
       method:'POST',
-      headers:GHL_H,
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        locationId:GHL_LOC,
         firstName,lastName,
         email:qData.email,
         phone:qData.phone,
         companyName:qData.company,
-        source:'Website Quiz',
-        tags:['quiz-lead',qData.industry,qData.timeline].filter(Boolean)
-      })
-    });
-    const data=await res.json();
-    const contactId=data.contact?.id;
-
-    /* 2. Add note with full quiz details */
-    if(contactId){
-      await fetch('https://services.leadconnectorhq.com/contacts/'+contactId+'/notes',{
-        method:'POST',
-        headers:GHL_H,
-        body:JSON.stringify({body:[
+        tags:['quiz-lead',qData.industry,qData.timeline].filter(Boolean),
+        note:[
           '📋 WEBSITE QUIZ SUBMISSION',
           'Industry: '+(qData.industry||'—'),
           'Challenge: '+(qData.challenge||'—'),
@@ -1202,9 +1185,9 @@ async function submitQuiz(){
           'Services: '+(qData.services.join(', ')||'—'),
           'Timeline: '+(qData.timeline||'—'),
           'How Heard: '+(qData.source||'—')
-        ].join('\n')})
-      });
-    }
+        ].join('\n')
+      })
+    });
   }catch(e){}
 
   buildResults();
