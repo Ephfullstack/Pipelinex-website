@@ -1166,30 +1166,46 @@ async function submitQuiz(){
   const nameParts=qData.name.trim().split(' ');
   const firstName=nameParts[0];
   const lastName=nameParts.slice(1).join(' ')||'';
+  const GHL_KEY='pit-6843a8cc-3727-4ec4-ba1d-4141a0db8d3f';
+  const GHL_LOC='noybjYU81Q2wCuwLiizF';
+  const GHL_H={'Authorization':'Bearer '+GHL_KEY,'Version':'2021-07-28','Content-Type':'application/json'};
 
-  await Promise.allSettled([
-    /* GHL — creates contact + opportunity via workflow */
-    fetch('https://services.leadconnectorhq.com/hooks/noybjYU81Q2wCuwLiizF/webhook-trigger/14571bc8-23b9-45be-a46e-7d9417821f49',{
+  try{
+    /* 1. Create contact directly in GHL */
+    const res=await fetch('https://services.leadconnectorhq.com/contacts/',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers:GHL_H,
       body:JSON.stringify({
-        firstName,
-        lastName,
+        locationId:GHL_LOC,
+        firstName,lastName,
         email:qData.email,
         phone:qData.phone,
         companyName:qData.company,
         source:'Website Quiz',
-        tags:['quiz-lead',qData.industry].filter(Boolean),
-        industry:qData.industry,
-        challenge:qData.challenge,
-        revenue:qData.revenue,
-        budget:qData.budget,
-        services:qData.services.join(', '),
-        timeline:qData.timeline,
-        howHeard:qData.source
+        tags:['quiz-lead',qData.industry,qData.timeline].filter(Boolean)
       })
-    })
-  ]);
+    });
+    const data=await res.json();
+    const contactId=data.contact?.id;
+
+    /* 2. Add note with full quiz details */
+    if(contactId){
+      await fetch('https://services.leadconnectorhq.com/contacts/'+contactId+'/notes',{
+        method:'POST',
+        headers:GHL_H,
+        body:JSON.stringify({body:[
+          '📋 WEBSITE QUIZ SUBMISSION',
+          'Industry: '+(qData.industry||'—'),
+          'Challenge: '+(qData.challenge||'—'),
+          'Annual Revenue: '+(qData.revenue||'—'),
+          'Monthly Budget: '+(qData.budget||'—'),
+          'Services: '+(qData.services.join(', ')||'—'),
+          'Timeline: '+(qData.timeline||'—'),
+          'How Heard: '+(qData.source||'—')
+        ].join('\n')})
+      });
+    }
+  }catch(e){}
 
   buildResults();
   goStep(7);
