@@ -596,6 +596,31 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
 .qbtn-n{font-family:var(--fs);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,var(--blue),var(--cyan));padding:12px 28px;border:none;cursor:pointer;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:opacity .2s,transform .15s;box-shadow:0 0 20px rgba(79,108,255,.28)}
 .qbtn-n:hover:not(:disabled){opacity:.88;transform:translateY(-1px)}
 .qbtn-n:disabled{opacity:.35;cursor:not-allowed}
+
+/* Blog modals */
+.blog-modal-overlay{position:fixed;inset:0;z-index:10001;background:rgba(4,4,18,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
+.blog-modal-overlay.act{opacity:1;pointer-events:all}
+.blog-modal{background:var(--bg2);border:1px solid var(--bdr);max-width:720px;width:100%;position:relative;box-shadow:0 48px 120px rgba(0,0,0,.7);margin:auto}
+.bm-top{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;border-bottom:1px solid var(--bdr);position:sticky;top:0;background:var(--bg2);z-index:2}
+.bm-cat{font-family:var(--fs);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan)}
+.bm-close{background:none;border:1px solid var(--bdr);color:var(--mist);width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:border-color .2s,color .2s;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);flex-shrink:0;line-height:1}
+.bm-close:hover{border-color:var(--mist);color:var(--white)}
+.bm-body{padding:36px 32px 48px}
+.bm-title{font-family:var(--fh);font-size:clamp(28px,4vw,46px);font-weight:900;text-transform:uppercase;line-height:1.0;color:var(--white);margin-bottom:16px}
+.bm-meta{font-family:var(--fs);font-size:11px;color:var(--dim);margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--bdr)}
+.bm-body h3{font-family:var(--fh);font-size:20px;font-weight:900;text-transform:uppercase;color:var(--white);margin:28px 0 10px}
+.bm-body p{font-size:15px;color:var(--mist);line-height:1.8;margin-bottom:16px}
+.bm-body ul{padding-left:20px;margin-bottom:16px}
+.bm-body ul li{font-size:15px;color:var(--mist);line-height:1.8;margin-bottom:6px}
+.bm-body strong{color:var(--white)}
+.bm-body .bm-highlight{background:rgba(79,108,255,.08);border-left:3px solid var(--cyan);padding:16px 20px;margin:24px 0;font-size:15px;color:var(--white);line-height:1.7}
+.bm-cta{margin-top:36px;padding-top:28px;border-top:1px solid var(--bdr);text-align:center}
+.bm-cta p{font-size:14px;color:var(--mist);margin-bottom:16px}
+@media(max-width:600px){
+  .bm-body{padding:24px 18px 36px}
+  .bm-top{padding:16px 18px}
+}
+
 @media(max-width:600px){
   .quiz-panel{max-height:100svh;border:none;border-radius:0}
   .quiz-body{padding:20px 16px 16px}
@@ -941,9 +966,9 @@ footer{background:var(--bg);border-top:1px solid var(--bdr);padding:60px 52px 36
   <div class="sec-label rv">Free resources</div>
   <h2 class="sec-h2 rv">LEARN HOW TO <span class="cx">FILL<br>YOUR PIPELINE.</span></h2>
   <div class="blog-grid">
-    <a href="#blog" class="blog-card rv"><div class="blog-cat">Lead Generation</div><div class="blog-title">We Don't Know Where Our Leads Come From — And How to Fix It</div><div class="blog-ex">The simple tracking setup we install for every client: UTM parameters, unique numbers per channel, and one form question that changes everything.</div><div class="blog-meta"><span>5 min read · Lead Tracking</span><span class="blog-arrow">→</span></div></a>
-    <a href="#blog" class="blog-card rv" style="transition-delay:.08s"><div class="blog-cat">AI Systems</div><div class="blog-title">Getting Leads That Don't Convert? Your Follow-Up Is Too Slow</div><div class="blog-ex">78% of buyers choose the first vendor to respond. Here's how AI cuts response time from hours to under 5 minutes — automatically.</div><div class="blog-meta"><span>6 min read · AI &amp; Automation</span><span class="blog-arrow">→</span></div></a>
-    <a href="#blog" class="blog-card rv" style="transition-delay:.16s"><div class="blog-cat">Paid Ads</div><div class="blog-title">Struggling to Structure Your Sales Calls? Your Funnel Is Missing This Step</div><div class="blog-ex">The difference between a £5 lead and a £500 lead isn't the ad — it's the qualification system behind it. Build one in a weekend.</div><div class="blog-meta"><span>7 min read · Google &amp; Meta Ads</span><span class="blog-arrow">→</span></div></a>
+    <a href="#" data-blog="blog1" class="blog-card rv blog-trigger"><div class="blog-cat">Lead Generation</div><div class="blog-title">We Don't Know Where Our Leads Come From — And How to Fix It</div><div class="blog-ex">The simple tracking setup we install for every client: UTM parameters, unique numbers per channel, and one form question that changes everything.</div><div class="blog-meta"><span>5 min read · Lead Tracking</span><span class="blog-arrow">→</span></div></a>
+    <a href="#" data-blog="blog2" class="blog-card rv blog-trigger" style="transition-delay:.08s"><div class="blog-cat">AI Systems</div><div class="blog-title">Getting Leads That Don't Convert? Your Follow-Up Is Too Slow</div><div class="blog-ex">78% of buyers choose the first vendor to respond. Here's how AI cuts response time from hours to under 5 minutes — automatically.</div><div class="blog-meta"><span>6 min read · AI &amp; Automation</span><span class="blog-arrow">→</span></div></a>
+    <a href="#" data-blog="blog3" class="blog-card rv blog-trigger" style="transition-delay:.16s"><div class="blog-cat">Paid Ads</div><div class="blog-title">Struggling to Structure Your Sales Calls? Your Funnel Is Missing This Step</div><div class="blog-ex">The difference between a £5 lead and a £500 lead isn't the ad — it's the qualification system behind it. Build one in a weekend.</div><div class="blog-meta"><span>7 min read · Google &amp; Meta Ads</span><span class="blog-arrow">→</span></div></a>
   </div>
 </section>
 
@@ -1100,6 +1125,37 @@ document.getElementById('lm-submit').addEventListener('click',()=>{
   btn.textContent='✓ Check your inbox!';btn.style.background='linear-gradient(135deg,#1a7a46,#22c76a)';btn.style.pointerEvents='none';
 });
 
+/* ── BLOG MODALS ── */
+document.querySelectorAll('.blog-trigger').forEach(card=>{
+  card.addEventListener('click',e=>{
+    e.preventDefault();
+    const id=card.dataset.blog;
+    const overlay=document.getElementById(id);
+    if(!overlay)return;
+    overlay.classList.add('act');
+    document.body.style.overflow='hidden';
+    overlay.scrollTop=0;
+  });
+});
+document.addEventListener('click',e=>{
+  if(e.target.closest('.blog-close')){
+    e.target.closest('.blog-modal-overlay').classList.remove('act');
+    document.body.style.overflow='';
+  }
+  if(e.target.classList.contains('blog-modal-overlay')){
+    e.target.classList.remove('act');
+    document.body.style.overflow='';
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.blog-modal-overlay.act').forEach(o=>{
+      o.classList.remove('act');
+      document.body.style.overflow='';
+    });
+  }
+});
+
 /* ── QUIZ FUNNEL ── */
 const QUIZ_STEPS=8;
 let qStep=0,qData={industry:'',challenge:'',revenue:'',budget:'',services:[],timeline:'',name:'',company:'',email:'',phone:'',source:''};
@@ -1216,6 +1272,97 @@ function buildResults(){
   document.getElementById('qResIndustry').textContent=qData.industry||'your industry';
 }
 </script>
+
+<!-- ── BLOG MODALS ── -->
+
+<div id="blog1" class="blog-modal-overlay" role="dialog" aria-modal="true">
+  <div class="blog-modal">
+    <div class="bm-top"><span class="bm-cat">Lead Generation</span><button class="bm-close blog-close" aria-label="Close">&#x2715;</button></div>
+    <div class="bm-body">
+      <div class="bm-title">We Don't Know Where Our Leads Come From — And How to Fix It</div>
+      <div class="bm-meta">5 min read &nbsp;·&nbsp; Lead Tracking &nbsp;·&nbsp; By PipelineX</div>
+      <p>If you're a trades or construction business owner running ads, you've probably said this at some point: <strong>"I'm not sure which one of these is actually bringing in jobs."</strong> You're spending money on Google, maybe running some Facebook ads, and your mate told you to try Instagram. Jobs are coming in — but you genuinely don't know which channel is sending them.</p>
+      <p>This is one of the most common problems we see when we onboard a new client. And it's fixable in a week.</p>
+      <h3>Why This Happens</h3>
+      <p>Most trades businesses set up ads through whoever built their website, or used a one-size-fits-all agency who never bothered to close the attribution loop. The ads run, the phone rings, money gets spent — but there's no system connecting the two.</p>
+      <p>Without tracking, you're essentially flying blind. You might be spending £1,000/month on a Google campaign that's generating nothing, while a £200 Meta test is booking 80% of your jobs.</p>
+      <h3>The Three-Part Fix We Use for Every Client</h3>
+      <p><strong>1. UTM Parameters on Every Link</strong><br>Every ad, every channel, every campaign gets a unique tracking tag. When someone clicks your ad and fills in a form, we know exactly which ad sent them. Set these up in Google Analytics and your CRM.</p>
+      <p><strong>2. Unique Phone Numbers Per Channel</strong><br>Use call tracking numbers (tools like CallRail or ResponseTap) so each marketing channel has its own number. When someone calls, you know whether they came from Google, Meta, or your website.</p>
+      <div class="bm-highlight">"The first thing we do for every new client is install proper tracking. Usually within the first two weeks, they discover one channel is responsible for 70%+ of their leads — and they've been wasting budget everywhere else."<br><br>— Louis Loftus, PipelineX</div>
+      <p><strong>3. One Form Question That Changes Everything</strong><br>Add "How did you hear about us?" to every enquiry form. Give specific options: Google Ad, Facebook Ad, Instagram, Referral, Google Search. This manual attribution catches everything your tracking might miss — especially phone-first customers who searched Google, called directly, and never clicked a tracked link.</p>
+      <h3>What to Do With This Data</h3>
+      <p>Once you have two to four weeks of data, patterns emerge fast. Kill the channels with no ROI. Double down on the ones that are booking jobs. For most of our clients, this single exercise reduces wasted ad spend by 30–40% within 30 days.</p>
+      <p>If you're a plumbing, heating, or construction business and want us to audit your current tracking setup — book a free strategy call. We'll tell you exactly what's working and what's being wasted.</p>
+      <div class="bm-cta"><p>Ready to know exactly where every lead comes from?</p><a href="#" class="btn-primary quiz-trigger" style="display:inline-flex;align-items:center;gap:8px">Book a free audit →</a></div>
+    </div>
+  </div>
+</div>
+
+<div id="blog2" class="blog-modal-overlay" role="dialog" aria-modal="true">
+  <div class="blog-modal">
+    <div class="bm-top"><span class="bm-cat">AI Systems</span><button class="bm-close blog-close" aria-label="Close">&#x2715;</button></div>
+    <div class="bm-body">
+      <div class="bm-title">Getting Leads That Don't Convert? Your Follow-Up Is Too Slow</div>
+      <div class="bm-meta">6 min read &nbsp;·&nbsp; AI &amp; Automation &nbsp;·&nbsp; By PipelineX</div>
+      <p>You ran the ads. The leads came in. And then... nothing. They don't answer when you call back. They've "gone with someone else." Sound familiar?</p>
+      <p>This is the single biggest problem we see with trades businesses: <strong>the lead arrives, and by the time anyone responds, it's already dead.</strong></p>
+      <h3>The 5-Minute Rule</h3>
+      <p>Research from Harvard Business Review found that <strong>responding to a lead within 5 minutes makes you 100x more likely to convert them</strong> than if you wait 30 minutes. Wait a day? You're essentially handing the job to your competitor.</p>
+      <p>For a heating engineer on site at 9am, that's a real problem. You can't drop tools every time a form comes in. So leads pile up, responses happen hours later, and the prospect has already booked someone else.</p>
+      <div class="bm-highlight">One of our clients — a boiler installation company in Leeds — was getting 20+ enquiries a week but converting fewer than 4. Their response time averaged 6 hours. We installed an AI follow-up system. Within 30 days, conversion rate doubled. Response time: under 4 minutes. 24/7.</div>
+      <h3>What AI Follow-Up Actually Looks Like</h3>
+      <p>It's not a chatbot that says "Hi! How can I help you today?" It's a smart SMS and email sequence that fires the moment a lead submits a form:</p>
+      <ul>
+        <li><strong>Immediate SMS</strong> — personalised to the enquiry type (boiler service, new install, emergency call-out)</li>
+        <li><strong>Qualification questions</strong> — filters out tyre-kickers before your team spends time on a call</li>
+        <li><strong>Calendar booking link</strong> — lets the qualified lead book directly into your diary</li>
+        <li><strong>Follow-up sequence</strong> — if they don't respond, automated nudges go out at 2 hours, 24 hours, 72 hours</li>
+      </ul>
+      <h3>What This Costs to Set Up</h3>
+      <p>Less than you think. Using tools like GoHighLevel, a basic AI follow-up system can be running within a week. The software costs around £100–£150/month. For most of our clients, one additional booked job per month covers the cost entirely.</p>
+      <p>The question isn't whether you can afford to automate follow-up. It's whether you can afford not to — while your competitors are responding in minutes.</p>
+      <div class="bm-cta"><p>Want us to build your AI follow-up system?</p><a href="#" class="btn-primary quiz-trigger" style="display:inline-flex;align-items:center;gap:8px">Get a free strategy call →</a></div>
+    </div>
+  </div>
+</div>
+
+<div id="blog3" class="blog-modal-overlay" role="dialog" aria-modal="true">
+  <div class="blog-modal">
+    <div class="bm-top"><span class="bm-cat">Paid Ads</span><button class="bm-close blog-close" aria-label="Close">&#x2715;</button></div>
+    <div class="bm-body">
+      <div class="bm-title">Struggling to Structure Your Sales Calls? Your Funnel Is Missing This Step</div>
+      <div class="bm-meta">7 min read &nbsp;·&nbsp; Google &amp; Meta Ads &nbsp;·&nbsp; By PipelineX</div>
+      <p>Most trades businesses run ads that send people directly to a contact page. Someone clicks, sees a phone number, maybe fills in a form. Then your sales team calls them cold — no context, no qualification, no idea if this person is ready to buy or just shopping around.</p>
+      <p>The result? <strong>You spend 30 minutes on a call with someone who wanted a quote "just to compare prices"</strong> and had no intention of booking.</p>
+      <p>The fix is a qualification funnel — and it sits between your ad and your phone number.</p>
+      <h3>What a Qualification Funnel Actually Is</h3>
+      <p>A qualification funnel is a short series of questions that filters leads before they reach your diary. By the time someone books a call, you already know:</p>
+      <ul>
+        <li>What job they need done</li>
+        <li>Their rough budget range</li>
+        <li>Their timeline (urgent vs. planning ahead)</li>
+        <li>Their location (are they even in your area?)</li>
+        <li>Whether they've had quotes before and what happened</li>
+      </ul>
+      <p>This turns a cold inbound call into a warm, pre-qualified conversation. Your close rate goes up. Your time wasted goes down.</p>
+      <div class="bm-highlight">For a plumbing and heating client we work with, adding a qualification funnel before their booking page cut their "no-show" call rate from 40% to under 8%, and increased their average job value by 22% — because pre-qualified leads skew toward bigger jobs.</div>
+      <h3>The Difference Between a £5 Lead and a £500 Lead</h3>
+      <p>It's not the ad. Seriously — we've seen the same ad creative generate both. The difference is what happens <em>after</em> the click.</p>
+      <p>A £5 lead comes from an ad that sends people to a generic page, collects a name and number, and dumps them into a spreadsheet. A £500 lead comes from a structured funnel that qualifies intent, filters geography, confirms budget, and delivers a pre-warmed prospect ready to book.</p>
+      <h3>How to Build One Over a Weekend</h3>
+      <p>You don't need expensive software. A basic qualification funnel can be built using:</p>
+      <ul>
+        <li><strong>Typeform or GoHighLevel</strong> — for the multi-step form</li>
+        <li><strong>Calendly or GHL Calendar</strong> — for booking</li>
+        <li><strong>Zapier</strong> — to connect the form to your CRM and trigger automations</li>
+      </ul>
+      <p>Map out 5–7 questions. Keep each one on its own screen. Use conditional logic to skip irrelevant questions. End with a calendar booking for people who pass your criteria, and a "we'll be in touch" message for everyone else.</p>
+      <p>We build these for every PipelineX client as standard. If you want us to build yours — or audit the one you have — book a free call below.</p>
+      <div class="bm-cta"><p>Want a qualification funnel built for your business?</p><a href="#" class="btn-primary quiz-trigger" style="display:inline-flex;align-items:center;gap:8px">Book a free strategy call →</a></div>
+    </div>
+  </div>
+</div>
 
 <!-- ── QUIZ OVERLAY ── -->
 <div id="quizOverlay" class="quiz-overlay" role="dialog" aria-modal="true" aria-label="Free Strategy Quiz">
