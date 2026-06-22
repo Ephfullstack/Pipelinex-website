@@ -5,10 +5,17 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).end();
 
-  const GHL_KEY = 'pit-6843a8cc-3727-4ec4-ba1d-4141a0db8d3f';
+  const GHL_KEY = process.env.GHL_KEY;
+  if (!GHL_KEY) {
+    console.error('GHL_KEY environment variable is not set');
+    return res.status(500).json({ error: 'Server configuration error' });
+  }
   const GHL_LOC = 'noybjYU81Q2wCuwLiizF';
   const PIPELINE_ID = 'wJbjFivMGHFklHnK1Xkk';       // Setting Pipeline UK
   const STAGE_ID    = '55b52b33-697d-428a-809b-ef6fa246f774'; // New Lead
+
+  // GHL inbound webhook trigger — fires a GHL Workflow for each lead
+  const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/noybjYU81Q2wCuwLiizF/webhook-trigger/efb2090c-a176-4f9b-8ed8-be77b17764d5';
 
   const GHL_H = {
     'Authorization': 'Bearer ' + GHL_KEY,
@@ -70,6 +77,24 @@ module.exports = async (req, res) => {
         ]
       })
     });
+
+    /* 4. Fire the GHL Workflow webhook trigger (best-effort, non-blocking) */
+    try {
+      await fetch(GHL_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contactId,
+          firstName, lastName, email, phone, companyName,
+          industry, challenge, budget, timeline,
+          tags: tags || [],
+          note,
+          source: 'Website Quiz'
+        })
+      });
+    } catch (whErr) {
+      console.error('GHL webhook trigger failed:', whErr.message);
+    }
 
     res.status(200).json({ success: true, contactId });
   } catch (e) {
